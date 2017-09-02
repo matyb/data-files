@@ -27,4 +27,13 @@ describe("using file-import", () => {
     expect(process.fn).toHaveBeenCalledWith({ key1: "value1",
 																							key2: "value2" });
 	});
+  it("can split two lines and one column", () => {
+    const process = { fn: function(record) {} };
+		spyOn(process, "fn");
+		readLines({separator: ",", keys: ["key"]}, 
+      				toFile("value1\nvalue2"),
+							process.fn);
+    expect(process.fn).toHaveBeenCalledWith({key: "value1"});
+    expect(process.fn).toHaveBeenCalledWith({key: "value2"});
+	});
 });
