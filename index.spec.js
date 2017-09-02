@@ -18,4 +18,13 @@ describe("using file-import", () => {
 							process.fn);
     expect(process.fn).toHaveBeenCalledWith({ key: "value" });
 	});
+  it("can split a single line and two columns", () => {
+    const process = { fn: function(record) {} };
+		spyOn(process, "fn");
+		readLines({separator: ",", keys: ["key1","key2"]}, 
+      				toFile("value1,value2"),
+							process.fn);
+    expect(process.fn).toHaveBeenCalledWith({ key1: "value1",
+																							key2: "value2" });
+	});
 });

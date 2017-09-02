@@ -14,8 +14,8 @@ function readLines(definition, fileContents, processFn) {
   });
 };
 exports.readLines = readLines;
-exports.fileImport = (definition, file) => {
+exports.fileImport = (definition, file, processFn) => {
   readLines(definition, require('readline').createInterface({
     input: require('fs').createReadStream('file.in')
-  }));		
+  }), processFn);		
 };
