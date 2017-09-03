@@ -13,8 +13,8 @@ describe("using file-import", () => {
   it("can split a single line and column", () => {
     const process = { fn: function(record) {} };
 		spyOn(process, "fn");
-		readLines({separator: ",", keys: ["key"]}, 
-      				toFile("value"),
+		readLines({separator: ",", keys: ["key"]},
+              toFile("value"),
 							process.fn);
     expect(process.fn).toHaveBeenCalledWith({ key: "value" });
 	});
@@ -46,5 +46,33 @@ describe("using file-import", () => {
 																						 key2: "value1b"});
     expect(process.fn).toHaveBeenCalledWith({key1: "value2a",
 																						 key2: "value2b"});
+	});
+});
+describe('file-import integration testing', () => {
+  var records = [];
+	var fileImport = require("./index.js").fileImport;
+  function processFn(done) {
+		return { fn: (record) => {
+      records.push(record);
+      if(records.length >= 2) {
+        done();
+      }
+		}};
+	}
+  var process;
+  beforeEach((done) => {
+    process = processFn(done);
+    spyOn(process, 'fn').and.callThrough();
+    setTimeout(() => {
+		  fileImport({separator: " ", keys: ["type","data"]}, 
+                  "test-data.txt",
+                  process.fn);
+    }, 100);
+  });
+  it("can read an actual file", () => {
+    expect(process.fn).toHaveBeenCalledWith({type: "test", data: "data"});
+    expect(process.fn).toHaveBeenCalledWith({type: "test", data: "data2"});
+    expect(records).toEqual([{type: "test", data: "data"},
+														 {type: "test", data: "data2"}]);
 	});
 });
