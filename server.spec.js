@@ -9,7 +9,7 @@ describe("using file-import", () => {
       }
     };
   }
-	var readLines = require("./index.js").readLines;
+	var readLines = require("./server.js").readLines;
   it("can split a single line and column", () => {
     const process = { fn: function(record) {} };
 		spyOn(process, "fn");
@@ -21,8 +21,8 @@ describe("using file-import", () => {
   it("can split a single line and two columns", () => {
     const process = { fn: function(record) {} };
 		spyOn(process, "fn");
-		readLines({separator: ",", keys: ["key1","key2"]}, 
-      				toFile("value1,value2"),
+		readLines({separator: ",", keys: ["key1","key2"]},
+              toFile("value1,value2"),
 							process.fn);
     expect(process.fn).toHaveBeenCalledWith({ key1: "value1",
 																							key2: "value2" });
@@ -30,8 +30,8 @@ describe("using file-import", () => {
   it("can split two lines and one column", () => {
     const process = { fn: function(record) {} };
 		spyOn(process, "fn");
-		readLines({separator: ",", keys: ["key"]}, 
-      				toFile("value1\nvalue2"),
+		readLines({separator: ",", keys: ["key"]},
+              toFile("value1\nvalue2"),
 							process.fn);
     expect(process.fn).toHaveBeenCalledWith({key: "value1"});
     expect(process.fn).toHaveBeenCalledWith({key: "value2"});
@@ -39,8 +39,8 @@ describe("using file-import", () => {
   it("can split two lines and two columns", () => {
     const process = { fn: function(record) {} };
 		spyOn(process, "fn");
-		readLines({separator: ",", keys: ["key1","key2"]}, 
-      				toFile("value1a,value1b\nvalue2a,value2b"),
+		readLines({separator: ",", keys: ["key1","key2"]},
+              toFile("value1a,value1b\nvalue2a,value2b"),
 							process.fn);
     expect(process.fn).toHaveBeenCalledWith({key1: "value1a",
 																						 key2: "value1b"});
@@ -50,7 +50,7 @@ describe("using file-import", () => {
 });
 describe('file-import integration testing', () => {
   var records = [];
-	var fileImport = require("./index.js").fileImport;
+	var fileImport = require("./server.js").fileImport;
   function processFn(done) {
 		return { fn: (record) => {
       records.push(record);
@@ -64,9 +64,9 @@ describe('file-import integration testing', () => {
     process = processFn(done);
     spyOn(process, 'fn').and.callThrough();
     setTimeout(() => {
-		  fileImport({separator: " ", keys: ["type","data"]}, 
-                  "test-data.txt",
-                  process.fn);
+		  fileImport({separator: " ", keys: ["type","data"]},
+                 "test-data.txt",
+                 process.fn);
     }, 100);
   });
   it("can read an actual file", () => {
