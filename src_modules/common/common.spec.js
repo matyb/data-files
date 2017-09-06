@@ -7,7 +7,7 @@ describe("using readLines", () => {
             }
         };
     }
-    var readLines = require("./common.js").readLines;
+    var readLines = require("./common.js");
     it("can split a single line and column", () => {
         const process = { fn: function (record) { } };
         spyOn(process, "fn");

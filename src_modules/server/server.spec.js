@@ -1,6 +1,6 @@
 describe('file-import integration testing', () => {
   var records = [];
-  var fileImport = require("./server.js").fileImport;
+  var fileImport = require("./server.js");
   function processFn(done) {
     return {
       fn: (record) => {

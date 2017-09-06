@@ -1,0 +1,27 @@
+{
+  "name": "file-import-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "client.js",
+  "scripts": {
+    "build": "gulp build",
+    "test": "gulp test"
+  },
+  "dependencies": {
+    "file-import-common": "*"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-buffer": "0.0.2",
+    "gulp-module": "0.0.6",
+    "gulp-protractor": "^4.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-tap": "^1.0.1",
+    "gulp-uglify": "^3.0.0",
+    "protractor": "^5.1.2"
+  }
+}

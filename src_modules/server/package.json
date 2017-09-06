@@ -1,5 +1,5 @@
 {
-  "name": "file-import",
+  "name": "file-import-server",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,20 +7,22 @@
     "build": "gulp build",
     "test": "gulp test"
   },
-  "dependencies": {
-    "line-reader": "^0.4.0"
-  },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "file-import-common": "*"
+  },
   "devDependencies": {
     "concat": "^1.0.3",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-browserify": "^0.5.1",
-    "gulp-chug": "^0.5.1",
+    "gulp-jasmine": "^2.4.2",
     "gulp-livereload": "^3.8.1",
     "gulp-module": "0.0.6",
     "gulp-sourcemaps": "^2.6.1",
     "jasmine": "^2.8.0",
+    "line-reader": "^0.4.0",
     "tiny-lr": "^1.0.5"
   }
 }

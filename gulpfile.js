@@ -1,21 +1,31 @@
 const gulp = require('gulp');
-const browserify = require('gulp-browserify');
-const concat = require('gulp-concat');
-const refresh = require('gulp-livereload');
-const server = require('tiny-lr')();
-const sourcemaps = require('gulp-sourcemaps');
+const chug = require( 'gulp-chug' );
+const gulpfiles = ['./src_modules/common/gulpfile.js', './src_modules/client/gulpfile.js', './src_modules/server/gulpfile.js'];
+gulp.task('default', () => {
+  gulp.src(gulpfiles)
+      .pipe(chug({
+        nodeCmd: 'node',
+        tasks:  [ 'default' ]
+      }));
+});
+gulp.task('test', () => {
+  gulp.src(gulpfiles)
+      .pipe(chug({
+        nodeCmd: 'node',
+        tasks:  [ 'test' ]
+      }));
+});
+gulp.task('clean', () => {
+  gulp.src(gulpfiles)
+      .pipe(chug({
+        nodeCmd: 'node',
+        tasks:  [ 'clean' ]
+      }));
+});
 gulp.task('build', () => {
-  gulp.src(['./client-common.js', './common.js', './client.js'])
-      .pipe(sourcemaps.init())
-      .pipe(concat('all.js'))
-      .pipe(sourcemaps.write())
-      .pipe(gulp.dest('./dist'))
-      .pipe(refresh(server));
-});
-gulp.task('copy', () => {
-  gulp.src('./*.html')
-      .pipe(gulp.dest('./dist'));
-});
-gulp.task('default', function() {
-  gulp.run(['build', 'copy']);
+  gulp.src(gulpfiles)
+      .pipe(chug({
+        nodeCmd: 'node',
+        tasks:  [ 'build' ]
+      }));
 });

@@ -1,0 +1,18 @@
+{
+  "name": "file-import-common",
+  "version": "1.0.0",
+  "description": "utility logic for file-import on client or server",
+  "main": "common.js",
+  "scripts": {
+    "build": "gulp build",
+    "test": "gulp test"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp-jasmine": "^2.4.2",
+    "gulp-module": "0.0.6",
+    "jasmine": "^2.8.0"
+  }
+}

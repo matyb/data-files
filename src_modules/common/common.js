@@ -1,4 +1,4 @@
-exports.readLines = (definition, fileContents, processFn) => {
+module.exports = (definition, fileContents, processFn) => {
     return fileContents.on('line', (line) => {
         const vals = line.split(definition.separator);
         const keyVals = vals.map((v, i) => {
