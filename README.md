@@ -1,4 +1,5 @@
-# file-import
+data-files  [![Build Status](https://travis-ci.org/matyb/data-files.png?branch=master)](https://travis-ci.org/matyb/data-files)
+==========
 A simple ORM layer for datafiles.
 
 ### client file handler
