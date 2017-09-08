@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "client.js",
+  "repository": "https://github.com/matyb/data-files.git",
   "scripts": {
     "build": "gulp build",
     "test": "gulp test"

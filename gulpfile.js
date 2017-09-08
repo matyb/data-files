@@ -1,31 +1,30 @@
 const gulp = require('gulp');
-const chug = require( 'gulp-chug' );
-const gulpfiles = ['./src_modules/common/gulpfile.js', './src_modules/client/gulpfile.js', './src_modules/server/gulpfile.js'];
+const spawn = require('child_process').spawn;
+const path = require('path');
+
+const gulpmodules = ['./src_modules/common',
+                     './src_modules/client',
+                     './src_modules/server'];
+
+function moduleStart(taskNames) {
+  gulpmodules.forEach((dir) => {
+    process.chdir(path.join(__dirname, dir));
+    const child = spawn(process.platform === 'win32' ? 'gulp.cmd' : 'gulp', taskNames, { customFds: [0,1,2] });
+    child.on('exit', (text) => {
+      console.log(text);
+    });
+  });
+};
+
 gulp.task('default', () => {
-  gulp.src(gulpfiles)
-      .pipe(chug({
-        nodeCmd: 'node',
-        tasks:  [ 'default' ]
-      }));
+  moduleStart(['default']);
 });
 gulp.task('test', () => {
-  gulp.src(gulpfiles)
-      .pipe(chug({
-        nodeCmd: 'node',
-        tasks:  [ 'test' ]
-      }));
+  moduleStart(['test']);
 });
 gulp.task('clean', () => {
-  gulp.src(gulpfiles)
-      .pipe(chug({
-        nodeCmd: 'node',
-        tasks:  [ 'clean' ]
-      }));
+  moduleStart(['clean']);
 });
 gulp.task('build', () => {
-  gulp.src(gulpfiles)
-      .pipe(chug({
-        nodeCmd: 'node',
-        tasks:  [ 'build' ]
-      }));
+  moduleStart(['build']);
 });
