@@ -5,6 +5,7 @@ const browserify = require('browserify');
 const gutil = require('gulp-util');
 const tap = require('gulp-tap');
 const del = require('del');
+const protractor = require("gulp-protractor").protractor;
 
 gulp.task('clean', () => {
   del(['./dist/*', './test/*']);
@@ -23,7 +24,6 @@ gulp.task('test', ['clean'], function() {
         file.contents = browserify(file.path, {debug: true}).bundle();
       }))
       .pipe(gulp.dest('./test'));
-  const protractor = require("gulp-protractor").protractor;
   return gulp.src(['client.spec.js'])
              .pipe(protractor({configFile: "client.spec.conf.js"}))
                .on('error', function(e) { throw e });

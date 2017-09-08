@@ -16,12 +16,10 @@
     "browserify": "^14.4.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-buffer": "0.0.2",
-    "gulp-module": "0.0.6",
     "gulp-protractor": "^4.1.0",
     "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.1",
     "gulp-tap": "^1.0.1",
-    "gulp-uglify": "^3.0.0",
-    "protractor": "^5.1.2"
+    "gulp-util": "^3.0.8"
   }
 }
