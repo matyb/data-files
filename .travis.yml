@@ -8,7 +8,6 @@ addons:
       - google-chrome-stable
 language: node_js
 node_js:
-  - "lts/*"
   - "6"
 script: gulp
 before_script:
