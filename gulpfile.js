@@ -1,6 +1,6 @@
 const gulp = require('gulp');
-const spawn = require('child_process').spawn;
-const path = require('path');
+const { spawn } = require('child_process');
+const { join } = require('path');
 
 const gulpmodules = ['./src_modules/common',
                      './src_modules/client',
@@ -9,11 +9,10 @@ const gulpmodules = ['./src_modules/common',
 function moduleTask(taskNames) {
   return () => {
     gulpmodules.forEach((dir) => {
-      process.chdir(path.join(__dirname, dir));
-      const child = spawn(process.platform === 'win32' ? 'gulp.cmd' : 'gulp', taskNames, { customFds: [0,1,2] });
-      child.on('exit', (text) => {
-        console.log(text);
-      });
+      process.chdir(join(__dirname, dir));
+      const gulpCmd = /^win/.test(process.platform) ? 'gulp.cmd' : 'gulp';
+      const child = spawn(gulpCmd, taskNames, { customFds: [0,1,2] });
+      child.on('exit', console.log);
     });
   };
 };
