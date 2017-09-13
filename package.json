@@ -1,5 +1,5 @@
 {
-  "name": "file-import",
+  "name": "data-files",
   "version": "1.0.0",
   "description": "",
   "main": "install.js",
@@ -9,9 +9,6 @@
     "test": "gulp test",
     "install": "sh install.sh",
     "clean-node-modules": "rm -r node_modules && rm -r src_modules/client/node_modules && rm -r src_modules/common/node_modules && rm -r src_modules/server/node_modules"
-  },
-  "dependencies": {
-    "line-reader": "^0.4.0"
   },
   "author": "",
   "license": "ISC",

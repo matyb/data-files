@@ -1,4 +1,4 @@
-const readLines = require("file-import-common");
+const readLines = require("data-files-common");
 module.exports = (definition, file, processFn) => {
   readLines(definition, require('readline').createInterface({
     input: require('fs').createReadStream(file)

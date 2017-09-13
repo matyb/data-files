@@ -1,8 +1,8 @@
-# file-import-client
-For asynchronous file processing in the browser see [file-import-client](https://github.com/matyb/tree/master/src_modules/client).
+# data-files-client
+For asynchronous file processing in the browser see [data-files-client](https://github.com/matyb/tree/master/src_modules/client).
 > install
 ```
-    npm install --save file-import-client
+    npm install --save data-files-client
 ```
 > html
 ```
@@ -10,7 +10,7 @@ For asynchronous file processing in the browser see [file-import-client](https:/
 ```
 > app.js
 ```
-const onFileChange = require('file-import-common');
+const onFileChange = require('data-files-common');
 const fileSelectId = 'file';
 document.getElementById(fileSelectId).onchange = () => {
   onFileChange(fileSelectId,

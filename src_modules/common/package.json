@@ -1,7 +1,7 @@
 {
-  "name": "file-import-common",
+  "name": "data-files-common",
   "version": "1.0.0",
-  "description": "utility logic for file-import on client or server",
+  "description": "utility logic for data-files on client or server",
   "main": "common.js",
   "repository": "https://github.com/matyb/data-files.git",
   "scripts": {

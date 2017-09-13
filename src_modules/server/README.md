@@ -1,12 +1,12 @@
-# file-import-server
-For streaming file processing in the server see [file-import-server](https://github.com/matyb/tree/master/src_modules/server).
+# data-files-server
+For streaming file processing in the server see [data-files-server](https://github.com/matyb/tree/master/src_modules/server).
 > install
 ```
-    npm install --save file-import-server
+    npm install --save data-files-server
 ```
 > app.js
 ```
-var fileImport = require("file-import-server");
+var fileImport = require("data-files-server");
 var records = [];
 function processFn(done) {
     records.push(record);

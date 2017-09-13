@@ -1,5 +1,5 @@
 {
-  "name": "file-import-client",
+  "name": "data-files-client",
   "version": "1.0.0",
   "description": "",
   "main": "client.js",
@@ -9,7 +9,7 @@
     "test": "gulp test"
   },
   "dependencies": {
-    "file-import-common": "*"
+    "data-files-common": "*"
   },
   "author": "",
   "license": "ISC",

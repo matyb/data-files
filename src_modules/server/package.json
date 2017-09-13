@@ -1,5 +1,5 @@
 {
-  "name": "file-import-server",
+  "name": "data-files-server",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "file-import-common": "*"
+    "data-files-common": "*"
   },
   "devDependencies": {
     "del": "^3.0.0",

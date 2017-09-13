@@ -1,6 +1,6 @@
 module.exports = function(filesId, definition, processFn, onLoadFn) {
   const reader = new FileReader();
-  const readLines = require('file-import-common');
+  const readLines = require('data-files-common');
   reader.onload = function(progressEvent){
     if(onLoadFn) onLoadFn();
     // By lines

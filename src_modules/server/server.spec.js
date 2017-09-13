@@ -1,4 +1,4 @@
-describe('file-import integration testing', () => {
+describe('data-files integration testing', () => {
   var records = [];
   var fileImport = require("./server.js");
   function processFn(done) {

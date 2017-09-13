@@ -11,7 +11,7 @@ gulp.task('clean', () => {
   del(['./dist/*', './test/*']);
 });
 gulp.task('build', ['test'], () => {
-  return gulp.src(['client.js']).pipe(rename('file-import-client.js')).pipe(gulp.dest('./dist'));
+  return gulp.src(['client.js']).pipe(rename('data-files-client.js')).pipe(gulp.dest('./dist'));
 });
 gulp.task('default', function() {
   return gulp.run(['build']);
