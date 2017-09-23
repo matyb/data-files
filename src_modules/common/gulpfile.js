@@ -13,6 +13,4 @@ gulp.task('test', () => {
              .pipe(jasmine())
                .on('error', (e) => { throw e });
 });
-gulp.task('default', () => {
-  gulp.run(['build']);
-});
+gulp.task('default', ['build'], () => {});

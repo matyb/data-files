@@ -13,9 +13,7 @@ gulp.task('clean', () => {
 gulp.task('build', ['test'], () => {
   return gulp.src(['client.js']).pipe(rename('data-files-client.js')).pipe(gulp.dest('./dist'));
 });
-gulp.task('default', function() {
-  return gulp.run(['build']);
-});
+gulp.task('default', ['build'], function() {});
 gulp.task('test', ['clean'], function() {
   gulp.src(['./fake-app/*.html']).pipe(gulp.dest('./test'));
   gulp.src(['./fake-app/fake-app.js'])
