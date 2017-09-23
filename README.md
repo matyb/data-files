@@ -10,4 +10,3 @@ For streaming file processing in the server see [data-files-server](https://gith
 
 ### utility logic
 For direct library access see [data-files-common](https://github.com/matyb/tree/master/src_modules/common).
-
